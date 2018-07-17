@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>shop main page</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+    <header class="navigation">
+
+    </header>
+    <div class="main-container">
+        <aside class="sidebar">
+            sidebar
+        </aside>
+        <section class="main-content">
+            <div class="toolbar">
+                toolbar
+                <button data-bind="click: ()=>{changePageSize(5)}">5 items</button>
+                <button data-bind="click: ()=>{changePageSize(10)}">10 items</button>
+                <button data-bind="click: ()=>{changePageSize(products().length)}">All items</button>
+                <button data-bind="click: sortedName">sort</button>
+            </div>
+            <div class="products">
+                <!-- ko foreach: listItemsOnPage -->
+                    <product-cart class="product-card"></product-cart>
+                <!-- /ko -->
+            </div>
+            <nav>
+                <ul class="pangination" data-bind="visible: maxPageIndex() != 0">
+                    <li data-bind="css: { disabled: pageIndex() === 0 }">
+                        <a href="#" data-bind="click: prevPage"><</a>
+                    </li>
+                    <!-- ko foreach: allPages -->
+                    <li
+                        class="page-item"
+                        data-bind="click:()=>{$parent.pangination($index())}">
+                        <a class="page-link" href="#" data-bind="text: pageNumber"></a>
+                    </li>
+                    <!-- /ko -->
+                    <li data-bind="css: { disabled: pageIndex() === maxPageIndex() }">
+                        <a href="#" data-bind="click: nextPage">></a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+    <footer>footer</footer>
+
+    <script data-main="js/app" src="js/scripts.min.js"></script>
+</body>
+
+</html>

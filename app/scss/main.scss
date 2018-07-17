@@ -1,0 +1,19 @@
+// -- vendors --
+
+@import "bootstrap/bootstrap.scss";
+@import "bootstrap/bootstrap-reboot.scss";
+@import "bootstrap/bootstrap-grid.scss";
+
+
+// -- templates  ---
+
+@import "styles/templates/productCart.scss";
+
+// -- common styles  ---
+
+@import "styles/common/header.scss";
+@import "styles/common/main-content.scss";
+@import "styles/common/toolbar.scss";
+@import "styles/common/sidebar.scss";
+@import "styles/common/footer.scss";
+@import "styles/common/main-container.scss";
