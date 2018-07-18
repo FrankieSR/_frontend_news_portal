@@ -1,17 +1,19 @@
 .product-card {
-    flex-basis: 15%;
-    background-color: $gray-400;
-    box-shadow: 3px 3px 3px grey;
-    margin: 5px;
-    transition: .3s;
+    flex-basis: 20%;
+    border-radius: 3px;
+    margin: 3px;
+    transition: .5s;
+    position: relative;
+    z-index: 100;
 
     &:hover {
-        box-shadow: 7px 7px 7px grey;
+        transform: scale(1.01);
+        transition: .3s;
+        box-shadow: 0 0 20px 5px $gray-500;
     }
 
-    .cart {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 2;
+    .card-title {
+        height: 60px;
+        line-height: 18px;
     }
 }

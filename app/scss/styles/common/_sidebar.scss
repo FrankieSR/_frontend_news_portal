@@ -1,6 +1,18 @@
 .sidebar {
-    margin: 5px;
     flex-basis: 20%;
-    background-color: #aaa;
-    border: 1px solid $orange;
+    background-color: $gray-900;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        top: 200px;
+        left: -70px;
+        transform: rotate(-90deg);
+    }
+
+    &__title {
+        color: $white;
+        font-size: 50px;
+        font-weight: 900;
+    }
 }

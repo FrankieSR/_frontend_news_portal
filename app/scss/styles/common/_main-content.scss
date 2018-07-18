@@ -1,6 +1,7 @@
 .main-content {
     flex-basis: 80%;
-    margin: 5px;
+    background-color: #eee;
+    border: 1px solid $orange;
 
     .products {
         display: flex;

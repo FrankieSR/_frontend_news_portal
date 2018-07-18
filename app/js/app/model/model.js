@@ -4,7 +4,7 @@ define(function() {
             .then(response => {
                 if (response.status !== 200) {
                     console.log(
-                        "error with connect. Status Code: " + response.status
+                        "Alert! Error with connect. Status Code: " + response.status
                     );
                 }
                 response.json().then(data => {
@@ -18,7 +18,7 @@ define(function() {
                 });
             })
             .catch(err => {
-                console.log("Fetch Error :-S", err);
+                console.log("Alert! We are have error! Please fix this ->", err);
             });
     };
 });

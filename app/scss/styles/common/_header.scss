@@ -1,6 +1,18 @@
 .navigation {
-    margin: 10px;
-    background-color: #999;
-    border: 1px solid $orange;
-    height: 90px;
+    margin: 5px;
+    background-color: $gray-900;
+    height: 100px;
+
+    .site-logo {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background-color: $orange;
+        padding: 10px;
+
+        &__title {
+            color: $white;
+            font-weight: bold;
+        }
+    }
 }

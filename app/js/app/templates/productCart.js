@@ -1,15 +1,12 @@
 define(function() {
     return function templateProductCart() {
-        return `
-                <div class="cart">
-                  <img class="cart-image" alt="Card" src = "https://cdn4.iconfinder.com/data/icons/shopping-symbol-2/500/archive_box_file_open_open_box_pack_product_products-128.png">
-                  <div class="cart-body">
-                    <h5 class="cart-title"  data-bind="text: $parent.name"></h5>
-                    <span  data-bind="text: $parent.price"></span>
-                    <p class="cart-text"  data-bind="text: $parent.description"></p>
-                  </div>
-                </div>`
-
-
-        }
+        return `<div class="card">
+                    <img class="card-img-top" data-bind="attr: { src: 'https://www.expertrec.com/wp-content/uploads/2017/11/magento-logo.png' }"  alt="image">
+                 <div class="card-body">
+                     <h5 class="card-title" data-bind="text: $parent.name"></h5>
+                      <span class="card-price" data-bind="text: $parent.price"></span>
+                      <p class="card-text" data-bind="text: $parent.description"></p>
+                </div>
+               </div>`
+    };
 });

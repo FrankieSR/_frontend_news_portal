@@ -1,6 +1,6 @@
 require([
-    "app/model",
-    "app/view",
+    "app/model/model",
+    "app/view/view",
     "app/templates/productCart",
     "app/templates/templatePangination",
     "knockout",
@@ -14,12 +14,12 @@ require([
             this.products = ko.observableArray(items);
             this.pageSize = ko.observable(5);
             this.pageIndex = ko.observable(0);
-            this.query = ko.observable('');
-            //--------------------
+            this.popupVisib = ko.observable(false);
+            this.rangeValue = ko.observable(50);
+            // --------------------
             this.listItemsOnPage = ko.computed(() => {
                 let size = this.pageSize();
                 let start = this.pageIndex() * size;
-
                 return this.products.slice(start, start + size);
             });
 
@@ -37,13 +37,16 @@ require([
                 return pages;
             });
 
-            // --------------register components ------------------
-            ko.components.register("product-cart", {template: cart()});
-
-            ko.components.register("btn", {template: pg()});
+            // --------------register components ---------------------------
+            ko.components.register("product-cart", {
+                template: cart()
+            });
+            ko.components.register("btn", {
+                template: pg()
+            });
         }
 
-        // --------------methods -------------------------------
+        // -------------- private methods -------------------------------
         prevPage() {
             if (this.pageIndex() > 0) {
                 this.pageIndex(this.pageIndex() - 1);
@@ -51,28 +54,29 @@ require([
         }
 
         nextPage() {
+            console.log(this.products());
             if (this.pageIndex() < this.maxPageIndex()) {
                 this.pageIndex(this.pageIndex() + 1);
             }
         }
 
         pangination(i) {
-            console.log(i);
             this.pageIndex(i);
         }
 
         sortedName() {
-            this.products.sort((left, right) => {
-                return left.price == right.price
-                    ? 0
-                    : left.price > right.price
-                        ? -1
-                        : 1;
+            this.products.sort((a, b) => {
+                return a.price == b.price ? 0 : a.price > b.price ? -1 : 1;
             });
         }
 
         changePageSize(qty) {
+            this.pageIndex(0);
             return this.pageSize(qty);
+        }
+
+        openPopup() {
+            this.popupVisib(!this.popupVisib());
         }
     }
 
