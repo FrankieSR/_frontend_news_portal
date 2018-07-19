@@ -16,6 +16,8 @@ require([
             this.pageIndex = ko.observable(0);
             this.popupVisib = ko.observable(false);
             this.rangeValue = ko.observable(50);
+            this.cart = ko.observable(localStorage);
+            this.itemsInCart = ko.observable(localStorage.length);
             // --------------------
             this.listItemsOnPage = ko.computed(() => {
                 let size = this.pageSize();
@@ -41,7 +43,7 @@ require([
             ko.components.register("product-cart", {
                 template: cart()
             });
-            ko.components.register("btn", {
+            ko.components.register("pangination-template", {
                 template: pg()
             });
         }
@@ -61,7 +63,7 @@ require([
         }
 
         pangination(i) {
-            this.pageIndex(i);
+            return this.pageIndex(i);
         }
 
         sortedName() {
@@ -77,6 +79,22 @@ require([
 
         openPopup() {
             this.popupVisib(!this.popupVisib());
+        }
+
+        addToCart(item) {
+            console.log(item);
+            localStorage.setItem(["inCart"] + localStorage.length, [
+                item.price,
+                item.name,
+                item.description
+            ]);
+            this.itemsInCart(localStorage.length);
+        }
+
+        visionCart() {
+            for (var i = 0; i < localStorage.length; i++) {
+                console.log(localStorage.key("inCart" + i).value);
+            }
         }
     }
 

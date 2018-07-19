@@ -1,12 +1,15 @@
 define(function() {
     return function templateProductCart() {
-        return `<div class="card">
-                    <img class="card-img-top" data-bind="attr: { src: 'https://www.expertrec.com/wp-content/uploads/2017/11/magento-logo.png' }"  alt="image">
-                 <div class="card-body">
-                     <h5 class="card-title" data-bind="text: $parent.name"></h5>
-                      <span class="card-price" data-bind="text: $parent.price"></span>
-                      <p class="card-text" data-bind="text: $parent.description"></p>
-                </div>
+        let linkToImage = "'https://www.expertrec.com/wp-content/uploads/2017/11/magento-logo.png'";
+        let linkToIcon = "https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png";
+        return `<div class="cart">
+                    <img class="card-img-top cart__image" data-bind="attr: { src: ${linkToImage}  }"  alt="image">
+                     <div class="cart__body">
+                         <h5 class="cart__title" data-bind="text: $parent.name"></h5>
+                          <span class="cart__price" data-bind="text: '$ ' + $parent.price"></span>
+                          <p class="cart__text" data-bind="text: $parent.description"></p>
+                          <img class ="cart__icon" src = ${linkToIcon} data-bind = "click: ()=>{$root.addToCart($parent)}"></img>
+                    </div>
                </div>`
     };
 });

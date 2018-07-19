@@ -7,13 +7,31 @@
 
 // -- templates  ---
 
-@import "styles/templates/productCart.scss";
+@import "styles/templates/cart.scss";
 
 // -- common styles  ---
 
 @import "styles/common/header.scss";
-@import "styles/common/main-content.scss";
+@import "styles/common/products-list.scss";
 @import "styles/common/toolbar.scss";
 @import "styles/common/sidebar.scss";
 @import "styles/common/footer.scss";
 @import "styles/common/main-container.scss";
+@import "styles/common/pangination.scss";
+
+
+body {
+    min-height: 100vh
+}
+
+.line {
+    position: absolute;
+    transition: 2s;
+    transform: rotate(-90deg);
+    font-size: 50px;
+    top: 20%;
+}
+
+.disabled {
+    content: X;
+}

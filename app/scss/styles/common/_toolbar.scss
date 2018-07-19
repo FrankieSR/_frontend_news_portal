@@ -1,5 +1,22 @@
 .toolbar {
-    margin: 5px;
-    height: 50px;
-    background-color: $gray-900;
+    &__toggle-block {
+        position: absolute;
+        background-color: #fff;
+        z-index: 999;
+        top: 40px;
+        display: flex;
+        transition: 1s;
+        flex-direction: column;
+        padding: 15px 55px;
+        border-radius: 5px;
+        box-shadow: 0 0 20px 0 $gray-700;
+    }
+
+    &__toggler {
+        padding: 10px 20px;
+        background: $orange;
+        font-weight: 700;
+        color: $white;
+        margin-left: 10px;
+    }
 }

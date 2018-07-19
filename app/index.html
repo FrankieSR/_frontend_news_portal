@@ -16,61 +16,102 @@
 </head>
 
 <body>
-    <header class="navigation">
-        <div class="site-logo">
-            <h1 class="site-logo__title">Header</h1>
-        </div>
-    </header>
-    <div class="main-container">
-        <aside class="sidebar">
-            <div class="sidebar__logo">
-                <h2 class="sidebar__title">Sidebar</h2>
-            </div>
-            <input type="text" data-bind="value: rangeValue"/>
-            <input type="range" data-bind="value: rangeValue, valueUpdate: 'change'"/>
-            
-        </aside>
-        <section class="main-content">
-            <div class="toolbar">
-                  <button class="btn  dropdown-toggle" type="button"  data-bind="click: openPopup">
-                    Products on page
-                  </button>
-                  <div class="toggle-products" data-bind="visible: popupVisib">
-                    <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(5)}">5 items</a>
-                    <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(10)}">10 items</a>
-                    <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(products().length)}">All items</a>
-                  </div>
-                toolbar
-                <button data-bind="click: sortedName">sort</button>
-            </div>
-            <div class="products">
-
-                <!-- ko foreach: listItemsOnPage -->
-                <product-cart class="product-card"></product-cart>
-                <!-- /ko -->
-
-            </div>
-            <nav>
-                <ul class="pangination" data-bind="visible: maxPageIndex() != 0">
-                    <li data-bind="css: { disabled: pageIndex() === 0 }">
-                        <a href="#" data-bind="click: prevPage">
-                            prev</a>
-                    </li>
-
-                    <!-- ko foreach: allPages -->
-                    <li class="pangination-item" data-bind="click:()=>{$parent.pangination($index())}">
-                        <a class="page-link" href="#" data-bind="text: pageNumber"></a>
-                    </li>
-                    <!-- /ko -->
-
-                    <li data-bind="css: { disabled: pageIndex() === maxPageIndex() }">
-                        <a class="" href="#" data-bind="click: nextPage">next</a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
+    <div class="line">
+        <h5> shop</h5>
     </div>
-    <footer>footer</footer>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="col-xs-12 col-md-6">
+                    <div class="site-logo">
+                        <h1 class="site-logo__title">Header</h1>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <form class="form-inline justify-content-end">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <img class="image-cart-header" data-bind="click: console.log(visionCart())" src="https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png" width="30px" alt="">
+                        <div class="productsInCart" data-bind="text: itemsInCart()">
+                        </div>
+                    </form>
+            </nav>
+            </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                <nav class="nav flex-column align-items-center">
+                    <a class="nav-link active" href="#">Active</a>
+                    <a class="nav-link" href="#">Link</a>
+                </nav>
+            </div>
+            <div class="col-xs-12 col-md-10">
+                <div class="row">
+                    <div class="toolbar">
+                        <ul class="nav nav-pills">
+                            <div class="toolbar">
+                                <div class="toolbar__toggler" data-bind="click: openPopup">
+                                    Products on page
+                                    <div class="toolbar__toggle-block" data-bind="visible: popupVisib">
+                                        <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(5)}">5 items</a>
+                                        <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(10)}">10 items</a>
+                                        <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(products().length)}">All items</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="toolbar">
+                                <button class="btn  dropdown-toggle" type="button" data-bind="click: openPopup">
+                                    Sorted
+                                  </button>
+                                <div class="toggle-products" data-bind="visible: popupVisib">
+                                    <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(5)}">5 items</a>
+                                    <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(10)}">10 items</a>
+                                    <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(products().length)}">All items</a>
+                                </div>
+                            </div> -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="products-list">
+                    <div class="row">
+                        <!-- ko foreach: listItemsOnPage -->
+                        <div class="col-xs-12 col-md-6 col-lg-3">
+                            <product-cart></product-cart>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <nav>
+                        <ul class="pagination" data-bind="visible: maxPageIndex() != 0">
+                            <li class="pagination__item pagination__item--arrow" data-bind="css: { disabled: pageIndex() === 0 }">
+                                <a class="pagination__link" href="#" data-bind="click: prevPage">
+                                    <</a>
+                            </li>
+                            <!-- ko foreach: allPages -->
+                            <li class="pagination__item" data-bind="click: () => {$root.pangination($index())}">
+                                <a class="pagination__link" href="#" data-bind="text: pageNumber"></a>
+                            </li>
+                            <!-- /ko -->
+                            <li class="pagination__item pagination__item--arrow" data-bind="css: { disabled: pageIndex() === maxPageIndex() }">
+                                <a class="pagination__link" href="#" data-bind="click: nextPage">></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            footer
+        </div>
+    </footer>
 
     <script data-main="js/app" src="js/scripts.min.js"></script>
 </body>
