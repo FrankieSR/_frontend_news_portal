@@ -18,10 +18,11 @@
 @import "styles/common/footer.scss";
 @import "styles/common/main-container.scss";
 @import "styles/common/pangination.scss";
+@import "styles/common/sales-cart.scss";
 
 
 body {
-    min-height: 100vh
+    min-height: 100vh;
 }
 
 .line {
@@ -30,8 +31,4 @@ body {
     transform: rotate(-90deg);
     font-size: 50px;
     top: 20%;
-}
-
-.disabled {
-    content: X;
 }

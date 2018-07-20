@@ -2,11 +2,12 @@ require([
     "app/model/model",
     "app/view/view",
     "app/templates/productCart",
-    "app/templates/templatePangination",
+    "app/templates/cartTemplate",
+    "app/templates/pangination",
     "knockout",
     "jquery",
     "underscore"
-], (model, view, cart, pg, ko, $, _) => {
+], (model, view, card, saleCart$, pangination, ko, $, _) => {
     let dataURL = "http://5b165eaba1c7e300147c8724.mockapi.io/products";
 
     class Controller {
@@ -15,9 +16,9 @@ require([
             this.pageSize = ko.observable(5);
             this.pageIndex = ko.observable(0);
             this.popupVisib = ko.observable(false);
-            this.rangeValue = ko.observable(50);
-            this.cart = ko.observable(localStorage);
+            this.cart = ko.observableArray();
             this.itemsInCart = ko.observable(localStorage.length);
+
             // --------------------
             this.listItemsOnPage = ko.computed(() => {
                 let size = this.pageSize();
@@ -40,23 +41,23 @@ require([
             });
 
             // --------------register components ---------------------------
-            ko.components.register("product-cart", {
-                template: cart()
-            });
-            ko.components.register("pangination-template", {
-                template: pg()
+            ko.components.register("product-cart", { template: card() });
+            ko.components.register("mycart", { template: saleCart$() });
+            ko.components.register("pangination", {
+                template: pangination(),
+                params: this.pageIndex
             });
         }
 
         // -------------- private methods -------------------------------
         prevPage() {
+            console.log(this.pageIndex);
             if (this.pageIndex() > 0) {
                 this.pageIndex(this.pageIndex() - 1);
             }
         }
 
         nextPage() {
-            console.log(this.products());
             if (this.pageIndex() < this.maxPageIndex()) {
                 this.pageIndex(this.pageIndex() + 1);
             }
@@ -92,10 +93,17 @@ require([
         }
 
         visionCart() {
+            let cartItems = [];
             for (var i = 0; i < localStorage.length; i++) {
-                console.log(localStorage.key("inCart" + i).value);
+                cartItems.push(localStorage.getItem(["inCart"] + i).split(","));
+                this.cart(cartItems);
             }
+            console.log(this.cart());
         }
+        //
+        // removeItemInCart(i) {
+        //     localStorage.removeItem(["inCart"] + i)
+        // }
     }
 
     model(dataURL, data => {
