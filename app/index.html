@@ -17,7 +17,7 @@
 
 <body>
     <div class="line">
-        <h5> shop</h5>
+        <h5> shop </h5>
     </div>
     <header class="header">
         <div class="container">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-8 text-right">
-                    <img class="image-cart-header" data-bind="click: console.log(visionCart())" src="https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png" width="30px" alt="">
+                    <img class="image-cart-header" src="https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png" width="30px" alt="">
                     <span class="productsInCart" data-bind="text: itemsInCart">
                     </span>
 
@@ -63,12 +63,16 @@
                     </div>
                     <div class="toolbar">
                         <div class="toolbar__toggler">
-                            Sorted name
+                            Sorted price
+                            <div class="toolbar__toggle-block">
+                                <a class="toolbar__item" href="#" data-bind="click: sortedPriceLow">Lowest price</a>
+                                <a class="toolbar__item" href="#" data-bind="click: sortedPriceHigh">Larged price</a>
+                            </div>
                         </div>
                     </div>
                     <div class="toolbar">
                         <div class="toolbar__toggler">
-                            Sorted price
+                            Sorted name
 
                         </div>
                     </div>

@@ -1,9 +1,7 @@
-
-
 define(function() {
     return function templateCartTemplate() {
-        return `<nav>
-                    <ul class="pagination" data-bind="visible: $root.maxPageIndex() != 0">
+        return `<nav class = "pangination">
+                    <ul class="pagination__list" data-bind="visible: $root.maxPageIndex() != 0">
                         <li class="pagination__item pagination__item--arrow" data-bind="css: { disabled: $root.pageIndex() === 0 }">
                             <a class="pagination__link" href="#" data-bind="click: $root.prevPage">
                                 <</a>

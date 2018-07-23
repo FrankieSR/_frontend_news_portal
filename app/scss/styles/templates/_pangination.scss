@@ -1,4 +1,10 @@
 .pagination {
+    &__list {
+        display: flex;
+        list-style: none;
+        position: relative;
+    }
+
     &__item {
         height: 30px;
         width: 30px;
@@ -12,9 +18,12 @@
             box-shadow: 0 0 10px 0 $gray-700;
         }
 
-
         a {
             color: black;
         }
     }
+}
+
+.disabled {
+    background: $gray-700;
 }
