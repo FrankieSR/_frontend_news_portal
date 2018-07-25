@@ -1,110 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-
     <meta charset="utf-8">
-
-    <title>shop main page</title>
+    <title>My IPR work</title>
     <meta name="description" content="">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link rel="stylesheet" href="css/main.min.css">
-
 </head>
 
 <body>
-    <div class="line">
-        <h5> shop </h5>
-    </div>
-    <header class="header">
-        <div class="container">
-            <nav class="navbar navbar-dark bg-dark">
-                <div class="col-xs-12 col-md-4">
-                    <div class="site-logo">
-                        <h1 class="site-logo__title">Header</h1>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-8 text-right">
-                    <img class="image-cart-header" src="https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png" width="30px" alt="">
-                    <span class="productsInCart" data-bind="text: itemsInCart">
-                    </span>
 
-                </div>
-            </nav>
-        </div>
-    </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-3">
-                <nav class="nav flex-column align-items-center">
+    <app />
 
-                </nav>
-            </div>
-            <div class="col-xs-12 col-md-9">
-                <div class="row">
-                    <div class="sales-cart">
-                        <!-- ko foreach: cart-->
-                            <!-- ko component: "mycart" -->
-                            <!-- /ko -->
-                        <!-- /ko -->
-                    </div>
-                    <div class="toolbar">
-                        <div class="toolbar__toggler" data-bind="click: openPopup">
-                            Products on page
-                            <div class="toolbar__toggle-block" data-bind="visible: popupVisib">
-                                <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(5)}">5 items</a>
-                                <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(10)}">10 items</a>
-                                <a class="toolbar__item" href="#" data-bind="click: ()=>{changePageSize(products().length)}">All items</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="toolbar">
-                        <div class="toolbar__toggler">
-                            Sorted price
-                            <div class="toolbar__toggle-block">
-                                <a class="toolbar__item" href="#" data-bind="click: sortedPriceLow">Lowest price</a>
-                                <a class="toolbar__item" href="#" data-bind="click: sortedPriceHigh">Larged price</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="toolbar">
-                        <div class="toolbar__toggler">
-                            Sorted name
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="products-list">
-                    <div class="row">
-                        <!-- ko foreach: listItemsOnPage -->
-                        <div class="col-xs-12 col-md-6 col-lg-4">
-                            <!-- ko component: "product-cart" -->
-                            <!-- /ko -->
-                        </div>
-                        <!-- /ko -->
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <!-- ko component: "pangination" -->
-                    <!-- /ko -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            footer
-        </div>
-    </footer>
-
-    <script data-main="js/app" src="js/scripts.min.js"></script>
+    <script data-main="src/main" src="dist/scripts.min.js"></script>
 </body>
-
 </html>

@@ -33,9 +33,9 @@ gulp.task("styles", () => {
 
 gulp.task("js", () => {
     return gulp
-        .src(["app/js/lib/require.js"])
+        .src(["app/src/js/lib/require.js"])
         .pipe(concat("scripts.min.js"))
-        .pipe(gulp.dest("app/js"))
+        .pipe(gulp.dest("app/dist"))
         .pipe(browserSync.reload({ stream: true }));
 });
 
