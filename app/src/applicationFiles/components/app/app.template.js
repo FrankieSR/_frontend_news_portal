@@ -1,6 +1,7 @@
 define(function() {
-        return  `<div>
-                    <h3>Items: </h3>
-                    <cart></cart>
-                </div>`
+    return `<div class = "app">
+                <header-template></header-template>
+                <main-template></main-template>
+                <footer-template></footer-template>
+            </div>`
 });

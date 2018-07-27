@@ -1,0 +1,16 @@
+.header {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: $background-secondary;
+    color: $color-secondary;
+    height: 80px;
+    border-bottom: 1px solid $white;
+    border-radius: $border-radius;
+
+    &__item {
+        flex-grow: 1;
+    }
+}

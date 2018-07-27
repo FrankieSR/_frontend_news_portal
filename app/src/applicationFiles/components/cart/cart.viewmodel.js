@@ -1,17 +1,28 @@
-
-define([
-    'lib/knockout-store/connect'
-],( connect ) => {
-
-    function projectListViewModel(params) {
+define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
+    function productListViewModel(params) {
+        //  ---- initialize the variables for viewmodel from store(state) --
+        //
         const vm = {};
-        vm.items = params.items;
+        // ------- change items quantity on page ----
+        //
+        try {
+            vm.items = ko.computed(() => {
+                let size = params.pageSize();
+                let start = params.pageIndex() * size;
+                return params.items().slice(start, start + size);
+            });
+
+        } catch (err) {
+            console.log("Alarm! :( error in cart.viewModel", err);
+        }
         return vm;
     }
 
-    function mapStateToParams( items ) {
-        return items;
+    function joinParamsToState(vmObject) {
+        return vmObject;
     }
 
-        return connect(mapStateToParams)(projectListViewModel);
+    // join that viewModel to common store
+    //
+    return connect(joinParamsToState)(productListViewModel);
 });

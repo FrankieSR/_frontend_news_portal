@@ -1,0 +1,39 @@
+.sidebar {
+    margin-bottom: 20px;
+
+    &__items-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item {
+        background-color: $background-secondary;
+        padding: 0px;
+        color: $color-secondary;
+        font-weight: bold;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        flex-basis: 30%;
+        text-align: center;
+        border-radius: $border-radius;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        box-shadow: $box-shadow;
+
+        button {
+            padding: 10px 5px;
+            background: $gray-900;
+            color: $color-secondary;
+            z-index: 1000;
+            border: 10px solid $white;
+            cursor: pointer;
+            border-radius: $border-radius;
+        }
+    }
+}

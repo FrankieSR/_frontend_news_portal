@@ -22,21 +22,26 @@ gulp.task("browser-sync", () => {
 
 gulp.task("styles", () => {
     return gulp
-        .src("app/" + syntax + "/**/*." + syntax + "")
-        .pipe(sass({ outputStyle: "expand" }).on("error", notify.onError()))
-        .pipe(rename({ suffix: ".min", prefix: "" }))
+        .src("app/src/**/*." + syntax + "")
+        .pipe(sass({
+            outputStyle: "expand"
+        }).on("error", notify.onError()))
         .pipe(autoprefixer(["last 15 versions"]))
-        .pipe(cleancss({ level: { 1: { specialComments: 0 } } }))
-        .pipe(gulp.dest("app/css"))
-        .pipe(browserSync.stream());
+        .pipe(concat("styles.min.css"))
+        .pipe(gulp.dest("app/dist/css"))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 gulp.task("js", () => {
     return gulp
-        .src(["app/src/js/lib/require.js"])
+        .src(["app/src/lib/require.js"])
         .pipe(concat("scripts.min.js"))
-        .pipe(gulp.dest("app/dist"))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(gulp.dest("app/dist/js"))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 gulp.task("watch", ["styles", "js", "browser-sync"], () => {});

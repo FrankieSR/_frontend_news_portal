@@ -1,5 +1,6 @@
 define(function() {
     return function getData(url, callback) {
+        //---   make a request to database ---
         fetch(url)
             .then(response => {
                 if (response.status !== 200) {
@@ -14,11 +15,13 @@ define(function() {
                             dataArray.push(data[0][key]);
                         }
                     }
+
+                    // return callback for working with response database
                     return callback(dataArray);
                 });
             })
             .catch(err => {
-                console.log("Alarm( ! We are have error! Please fix this ->", err);
+                console.log("Alarm( We are have no data! Please fix this ->", err);
             });
     };
 });

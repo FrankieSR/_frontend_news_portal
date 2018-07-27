@@ -1,0 +1,29 @@
+.pagination {
+    margin-top: 20px;
+
+    &__list {
+        display: flex;
+        list-style: none;
+        background-color: $background-secondary;
+        margin: 0;
+        border-radius: $border-radius;
+    }
+
+    &__item {
+
+    }
+
+    &__link {
+        font-weight: 700;
+        text-decoration: none;
+        color: $color-main;
+        padding: 5px 10px;
+        background-color: $background-main;
+        margin: 5px;
+        cursor: pointer;
+        display: block;
+        user-select: none;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+}

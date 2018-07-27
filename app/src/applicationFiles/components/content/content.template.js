@@ -1,0 +1,10 @@
+define(() => {
+    return `<div class = "content">
+                <div class = "content__toolbar">
+                    <toolbar-template></toolbar-template>
+                </div>
+                <div class = "content__items">
+                    <products></products>
+                </div>
+            </div>`
+});

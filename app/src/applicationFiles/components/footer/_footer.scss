@@ -1,0 +1,10 @@
+.footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: $background-secondary;
+    min-height: 50px;
+    border-top: 1px solid $white;
+    border-radius: $border-radius;
+}

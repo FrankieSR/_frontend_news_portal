@@ -1,0 +1,5 @@
+define(() => {
+    return `<div class="footer">
+                <h2><strong>FOOTER</strong></h2>
+            </div>`
+});
