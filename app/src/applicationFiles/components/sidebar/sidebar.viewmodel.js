@@ -4,25 +4,26 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
         //
         const vm = {};
         vm.items = params.items;
-        vm.inputValueMin = ko.observable(50);
-        vm.inputValueMax = ko.observable(50);
-
+        vm.inputValueMin = params.minPrice;
+        vm.inputValueMax = params.maxPrice;
+        vm.allProducts = ko.observableArray([]);
 
         //I want to iterate the above array elements in some click event !
-        vm.clickedSomeWhere = (data, event) =>{
-            vm.myArray = params.items;
+        vm.clickedSomeWhere = (data) =>{
+            vm.allProducts(params.items());
+            params.pageIndex(0);
             let arr = [];
             ko.utils.arrayForEach(vm.items(), (item)=>  {
-                if (item.price() >= vm.inputValueMin()) {
+                if (item.price() >= vm.inputValueMin() && item.price() <= vm.inputValueMax()) {
                     arr.push(item);
                 }
-                vm.myArray(arr);
+                vm.allProducts(arr);
             });
 
-            console.log(vm.myArray());
-        }
 
-         params.myArray = vm.myArray;
+            console.log(vm.allProducts());
+            params.allProducts(vm.allProducts());
+        };
 
         return vm;
     }

@@ -1,0 +1,36 @@
+.purchased{
+    position: absolute;
+    z-index: 1000;
+    right: 141px;
+    font-size: 12px;
+    background-color: $background-main;
+    top: 80px;
+    border-radius: 0;
+    padding: 10px;
+    min-width: 270px;
+    border-left: 2px solid $orange;
+    border-bottom: 2px solid $orange;
+    border-right: 2px solid $orange;
+
+    &__table-cell {
+        padding: 5px 0;
+
+        &--remove {
+            color: $orange;
+            width: 20px;
+            height: 10px;
+            position: relative;
+            left: 5px;
+            top: 3px;
+            bottom: 2px;
+            border: 1px solid #fff;
+            display: block;
+            border-radius: 50%;
+            cursor: pointer;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -3,11 +3,14 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
         //  ---- initialize the variables for viewmodel from store(state) --
         const vm = {};
         vm.items = params.items;
-        vm.itemsLength = params.itemsLength;
+
+
+
         vm.pageIndex = params.pageIndex;
         // ------- change items quantity on page ----
         vm.maxPageIndex = ko.computed(() => {
-            return Math.ceil(vm.itemsLength() / params.pageSize() - 1);
+          vm.itemsLength = params.allProducts().length;
+            return Math.ceil(vm.itemsLength / params.pageSize() - 1);
         });
 
         // ----- calculated all pages ---

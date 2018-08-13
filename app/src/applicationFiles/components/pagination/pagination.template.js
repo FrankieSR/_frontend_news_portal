@@ -12,7 +12,7 @@ define(() => {
                             </li>
                     <!-- /ko -->
 
-                    <li class="pagination__item pagination__item--arrow" data-bind="css: { disabled: pageIndex() === maxPageIndex() }">
+                    <li class="pagination__item pagination__item--arrow" data-bind="visible: {ifnot: items === 0}, css: { disabled: pageIndex() === maxPageIndex() }">
                         <a class="pagination__link" href="#" data-bind="click: nextPage">></a>
                     </li>
                 </ul>

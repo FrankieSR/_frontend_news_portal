@@ -2,7 +2,8 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
     function changePageSizeAndSort(params) {
         //  ---- initialize the variables for viewmodel from store(state) --
         const vm = {};
-        vm.items = params.items;
+        vm.quantityItems = params.itemsLength;
+        vm.items = params.allProducts;
         vm.pageIndex = params.pageIndex;
         vm.visibleItems = ko.observable(false);
         vm.visiblePriceSortItems = ko.observable(false);
@@ -22,7 +23,7 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
         // -----added setTimeout to simulate the load from the database --
         vm.sortedPriceHigh = () => {
             setTimeout(() => {
-                params.items.sort((a, b) => {
+                vm.items.sort((a, b) => {
                     return a.price() == b.price() ?
                         0 :
                         a.price() < b.price() ? -1 : 1;
@@ -32,7 +33,7 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
 
         vm.sortedPriceLow = () => {
             setTimeout(() => {
-                params.items.sort((a, b) => {
+                vm.items.sort((a, b) => {
                     return a.price() == b.price() ?
                         0 :
                         a.price() > b.price() ? -1 : 1;
@@ -44,7 +45,7 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
         // ----added setTimeout to simulate the load from the database --
         vm.sortedNameLow = () => {
             setTimeout(() => {
-                params.items.sort(
+                vm.items.sort(
                     (a, b) =>
                     a.name() !== b.name() ? (a.name() < b.name() ? -1 : 1) : 0
                 );
@@ -54,7 +55,7 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
         // -----added setTimeout to simulate the load from the database --
         vm.sortedNameHigh = () => {
             setTimeout(() => {
-                params.items.sort(
+                vm.items.sort(
                     (a, b) =>
                     a.name() !== b.name() ? (a.name() > b.name() ? -1 : 1) : 0
                 );
