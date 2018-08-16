@@ -1,13 +1,9 @@
 define([
     "knockout",
     path + "main/main.viewmodel",
-    path + "main/main.template",
+    pathToHtml + "main/main.template.html",
     path + "content/index",
-    path + "content/content.template",
-    path + "content/content.template",
-    path + "sidebar/index",
-    path + "sidebar/sidebar.template",
-    path + "sidebar/sidebar.template"
+    path + "sidebar/index"
 ], (ko, viewModel, template) => {
 
     ko.components.register("main-template", {

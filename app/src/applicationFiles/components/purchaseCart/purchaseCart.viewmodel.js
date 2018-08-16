@@ -3,9 +3,8 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
         const vm = {};
         vm.items = params.itemsInPurchaseCart;
         vm.visibilityCart = params.visibilityCart;
-        console.log(vm.visibilityCart);
         vm.removeItemInCart = (index) => {
-            params.itemsInPurchaseCart.splice( index, 1 )
+            params.itemsInPurchaseCart.splice(index, 1)
         };
 
         return vm;

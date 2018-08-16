@@ -6,12 +6,23 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
 
         vm.localState = {
             arr: [],
-            parsStorage: JSON.parse(localStorage.getItem("item")),
+            parseStorage: JSON.parse(localStorage.getItem("item")),
+
+            // -- -- added products info in local storage ----
             setLocalStorage: () => {
                 localStorage.setItem(
                     "item",
                     JSON.stringify(params.itemsInPurchaseCart())
                 );
+            },
+
+            createArrProductInfo: (index) => {
+                vm.localState.arr.push({
+                    name: vm.items()[index].name(),
+                    price: vm.items()[index].price()
+                });
+                params.itemsInPurchaseCart(vm.localState.arr);
+                console.log(vm.localState.arr);
             }
         };
 
@@ -28,24 +39,17 @@ define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
             console.log("Alarm! :( error in cart.viewModel", err);
         }
 
-        vm.setCartInfo = index => {
-            vm.localState.arr.push({
-                name: vm.items()[index].name(),
-                price: vm.items()[index].price()
-            });
-            params.itemsInPurchaseCart(vm.localState.arr);
-            console.log(vm.localState.arr);
-        };
-
+        // ------- add product to purchase cart -------
+        //
 
         vm.addToCart = (index) => {
             this.index = index;
             // if (localStorage.length != 0) {
-            //     for (let i = 0; i < vm.localState.parsStorage.length; i++) {
-            //         vm.localState.arr.push(vm.localState.parsStorage[i]);
+            //     for (let i = 0; i < vm.localState.parseStorage.length; i++) {
+            //         vm.localState.arr.push(vm.localState.parseStorage[i]);
             //     }
             // }
-            vm.setCartInfo(this.index);
+            vm.localState.createArrProductInfo(this.index);
             vm.localState.setLocalStorage();
         }
 

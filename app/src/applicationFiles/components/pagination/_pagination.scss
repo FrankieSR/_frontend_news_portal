@@ -2,28 +2,24 @@
     margin-top: 20px;
 
     &__list {
+        background-color: $background-secondary;
+        border-radius: $border-radius;
         display: flex;
         list-style: none;
-        background-color: $background-secondary;
         margin: 0;
-        border-radius: $border-radius;
-    }
-
-    &__item {
-
     }
 
     &__link {
-        font-weight: 700;
-        text-decoration: none;
-        color: $color-main;
-        padding: 5px 10px;
+        border-radius: 3px;
         background-color: $background-main;
-        margin: 5px;
+        color: $color-main;
         cursor: pointer;
         display: block;
-        user-select: none;
         font-size: 14px;
-        border-radius: 3px;
+        font-weight: 700;
+        margin: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        user-select: none;
     }
 }

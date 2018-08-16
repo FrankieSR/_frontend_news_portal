@@ -1,10 +1,11 @@
 define(["knockout", "lib/knockout-store/connect"], (ko, connect) => {
     function headerLogic(params) {
         const vm = {};
-        vm.cartLenth = params.itemsInPurchaseCart().length;
-        console.log(params.itemsInPurchaseCart().length);
+        vm.lengthPurchaseCart = params.itemsInPurchaseCart;
 
-        vm.visibilityItemInCart = () => {
+        // ---- open and close purchase cart ----
+        //
+        vm.visibProdInPurchaseCart = () => {
             params.visibilityCart(!params.visibilityCart());
         }
 

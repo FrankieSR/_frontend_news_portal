@@ -1,7 +1,7 @@
 define([
     "knockout",
     path + "pagination/pagination.viewmodel",
-    path + "pagination/pagination.template"
+    pathToHtml + "pagination/pagination.template.html"
 ], (ko, viewModel, template) => {
 
     ko.components.register("pagination-template", {

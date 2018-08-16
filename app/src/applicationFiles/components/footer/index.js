@@ -1,7 +1,7 @@
 define([
     "knockout",
     path + "footer/footer.viewmodel",
-    path + "footer/footer.template"
+    pathToHtml + "footer/footer.template.html"
 ], (ko, viewModel, template) => {
 
     ko.components.register("footer-template", {

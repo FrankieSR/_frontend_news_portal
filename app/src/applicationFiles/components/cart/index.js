@@ -1,7 +1,7 @@
 define([
     "knockout",
     path + "cart/cart.viewmodel",
-    path + "cart/cart.template"
+    pathToHtml + "cart/cart.template.html"
 
 ], (ko, viewModel, template) => {
 

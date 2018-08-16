@@ -1,12 +1,11 @@
 define([
     "knockout",
     path + "toolbar/toolbar.viewmodel",
-    path + "toolbar/toolbar.template"
+    pathToHtml + "toolbar/toolbar.template.html"
 ], (ko, viewModel, template) => {
 
     ko.components.register("toolbar-template", {
         template,
         viewModel
     });
-
 });

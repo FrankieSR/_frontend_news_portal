@@ -1,11 +1,9 @@
 define([
     "knockout",
     path + "header/header.viewmodel",
-    path + "header/header.template",
+    pathToHtml + "header/header.template.html",
     path + "logo/logo.viewmodel",
-    path + "logo/logo.template",
-    path + "purchaseCart/purchaseCart.viewmodel",
-    path + "purchaseCart/purchaseCart.template"
+    pathToHtml + "logo/logo.template.html"
 ], (ko, viewModel, template) => {
 
     ko.components.register("header-template", {

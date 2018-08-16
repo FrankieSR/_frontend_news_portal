@@ -1,13 +1,9 @@
 define([
     "knockout",
     path + "products/products.viewmodel",
-    path + "products/products.template",
+    pathToHtml + "products/products.template.html",
     path + "cart/index",
-    path + "cart/cart.viewmodel",
-    path + "cart/cart.template",
-    path + "pagination/index",
-    path + "pagination/pagination.viewmodel",
-    path + "pagination/pagination.template"
+    path + "pagination/index"
 ], (ko, viewModel, template) => {
 
     ko.components.register("products", {

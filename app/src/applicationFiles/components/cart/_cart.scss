@@ -4,16 +4,17 @@
     flex-wrap: wrap;
 
     &__body {
-        flex-basis: 33%;
-        transition: 0.5s;
-        cursor: pointer;
-        padding: 10px 0;
-        border-radius: $border-radius;
-        border: 1px solid $gray-200;
-        box-sizing: border-box;
-        position: relative;
-        z-index: 100;
         background-color: $background-main;
+        border: 1px solid $gray-200;
+        border-radius: $border-radius;
+        box-sizing: border-box;
+        cursor: pointer;
+        flex-basis: 33%;
+        padding: 10px 0;
+        position: relative;
+        transition: 0.5s;
+        z-index: 100;
+
 
         &:hover {
             box-shadow: $box-shadow;
@@ -35,11 +36,11 @@
 
     &__image {
         display: block;
-        min-height: 200px;
-        padding: 10px;
-        margin: 10px auto 0;
-        transition: .2s;
         max-width: 180px;
+        min-height: 200px;
+        margin: 10px auto 0;
+        padding: 10px;
+        transition: .2s;
     }
 
     &__name {
@@ -51,18 +52,17 @@
     }
 
     &__buy {
-        position: absolute;
-        display: block;
-        right: 20px;
         bottom: 30px;
-        height: 40px;
-        width: 40px;
-        background-color: transparent;
-        transition: .3s;
-        border-radius: 50%;
-        display: block;
         border: 1px solid $white;
+        border-radius: 50%;
+        background-color: transparent;
         cursor: pointer;
+        display: block;
+        height: 40px;
+        position: absolute;
+        transition: .3s;
+        right: 20px;
+        width: 40px;
 
         &:hover {
             box-shadow: $box-shadow-circle;
@@ -77,8 +77,8 @@
         img {
             max-width: 30px;
             position: absolute;
-            right: 4px;
             top: 4px;
+            right: 4px;
         }
     }
 }

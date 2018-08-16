@@ -21,6 +21,7 @@
     "gulp-util": "^3.0.8"
   },
   "dependencies": {
-    "knockout-store": "^3.0.1"
+    "knockout-store": "^3.0.1",
+    "text": "github:requirejs/text"
   }
 }

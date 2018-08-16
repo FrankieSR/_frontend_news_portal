@@ -1,5 +1,6 @@
 //--------  global path to files ----------------------------
-let path = "applicationFiles/components/";
+const path = "applicationFiles/components/";
+const pathToHtml = "text!" + path;
 //-----------------------------------------------------------
 
 define([
@@ -10,7 +11,9 @@ define([
     "lib/knockout-store/connect",
     path + "app/index",
     path + "app/app.viewmodel"
-], (ko, { setState }, getData) => {
+], (ko, {
+    setState
+}, getData) => {
     ko.deferUpdates = true;
     let dataURL = "http://5b165eaba1c7e300147c8724.mockapi.io/products";
 
@@ -38,10 +41,15 @@ define([
             // --- create a new array with my state data ---
             console.log(data);
             const observableProducts = data.map(
-                ({ name, price, description, images }) => {
+                ({
+                    name,
+                    price,
+                    description,
+                    images
+                }) => {
                     return {
                         name: ko.observable(name),
-                        price: ko.observable((price / 1000) * 1000),
+                        price: ko.observable(price / 1000 * 1000),
                         description: ko.observable(description),
                         image: ko.observable(images[0])
                     };
@@ -56,8 +64,7 @@ define([
                     state.minPrice(a.price());
                 }
             });
-            console.log(state.maxPrice().toFixed(0));
-            console.log(state.minPrice());
+
             state.allProducts(observableProducts);
             state.itemsLength(state.allProducts().length);
             state.items(observableProducts);

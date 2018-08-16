@@ -1,7 +1,7 @@
 define([
     "knockout",
     path + "logo/logo.viewmodel",
-    path + "logo/logo.template"
+    pathToHtml + "logo/logo.template.html"
 ], (ko, viewModel, template) => {
 
     ko.components.register("logo-template", {
