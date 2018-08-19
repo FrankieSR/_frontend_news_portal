@@ -28,22 +28,24 @@ gulp.task("styles", () => {
         }).on("error", notify.onError()))
         .pipe(autoprefixer(["last 15 versions"]))
         .pipe(concat("styles.min.css"))
-        .pipe(gulp.dest("app/dist/css"))
+        .pipe(gulp.dest("app/src/css"))
         .pipe(browserSync.reload({
             stream: true
         }));
 });
 
-gulp.task("js", () => {
-    return gulp
-        .src(["app/src/lib/require.js"])
-        .pipe(concat("scripts.min.js"))
-        .pipe(gulp.dest("app/dist/js"))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
-});
+// gulp.task("js", () => {
+//     return gulp
+//         .src(["app/src/lib/require.js"])
+//         .pipe(concat("scripts.min.js"))
+//         .pipe(gulp.dest("app/dist/js"))
+//         .pipe(browserSync.reload({
+//             stream: true
+//         }));
+// });
 
-gulp.task("watch", ["styles", "js", "browser-sync"], () => {});
+gulp.task("watch", ["styles", "browser-sync"], () => {
+    gulp.watch('app/src/**/*.scss', ['styles']);
+});
 
 gulp.task("default", ["watch"]);
